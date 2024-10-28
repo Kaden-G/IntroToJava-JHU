@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Calendar {
+public class CalendarMonth {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         
@@ -37,7 +37,7 @@ public class Calendar {
     public static int getValidYear(Scanner input) {
         int year = 0;
         while (true) {
-            System.out.print("Enter the year (e.g., 2022): ");
+            System.out.print("Enter the year (AD years only, positive integers, e.g., 2022): ");
             if (input.hasNextInt()) {
                 year = input.nextInt();
                 if (year > 0) {

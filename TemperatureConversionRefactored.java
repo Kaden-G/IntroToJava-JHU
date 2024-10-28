@@ -1,3 +1,6 @@
+// class TemperatureConversion
+//    Performs Temperature conversion from Fahrenheit to Celsius and vice versa
+//
 import java.util.Scanner; // Import the Scanner class to handle user input
 
 public class TemperatureConversionRefactored { 
@@ -56,7 +59,7 @@ public class TemperatureConversionRefactored {
 
     // Method to handle user input for selection of conversion or program termination
     public static int getUserInput(Scanner input) {
-        System.out.print("Enter 1 to convert F->C, 2 to convert C->F, 3 to quit: ");
+        System.out.print("Enter 1 to convert Fahrenheit->Celsius, 2 to convert Celsius->Fahrenheit, or 3 to quit: ");
         // Return the integer input by the user (their choice)
         return input.nextInt();
     }

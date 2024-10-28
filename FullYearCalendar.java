@@ -1,49 +1,33 @@
 import java.util.Scanner;
 
-public class Calendar {
+public class FullYearCalendar {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        
-        int month = getValidMonth(input); // Get a valid month from user
-        int year = getValidYear(input);   // Get a valid year from user
 
-        // Call the method to print the calendar for the given month and year
-        printMonthCalendar(month, year);
+        // Get a valid year from the user
+        int year = getValidYear(input);
+
+        // Loop through all the months of the year and print each month's calendar
+        for (int month = 1; month <= 12; month++) {
+            printMonthCalendar(month, year);
+            System.out.println();  // Add extra space between months
+        }
 
         input.close();
     }
 
-    // Method to get a valid month input from the user
-    public static int getValidMonth(Scanner input) {
-        int month = 0;
-        while (true) {
-            System.out.print("Enter the month (1-12): ");
-            if (input.hasNextInt()) {
-                month = input.nextInt();
-                if (month >= 1 && month <= 12) {
-                    break; // Valid input
-                } else {
-                    System.out.println("Invalid input. Please enter a number between 1 and 12.");
-                }
-            } else {
-                System.out.println("Invalid input. Please enter a valid integer.");
-                input.next(); // Clear the invalid input
-            }
-        }
-        return month;
-    }
-
-    // Method to get a valid year input from the user
     public static int getValidYear(Scanner input) {
         int year = 0;
         while (true) {
-            System.out.print("Enter the year (e.g., 2022): ");
+            // Warn the user that only AD years are supported
+            System.out.print("Enter the year (AD years only, positive integers, e.g., 2022): ");
+            
             if (input.hasNextInt()) {
                 year = input.nextInt();
-                if (year > 0) {
+                if (year > 0) {  // Accept only positive integers
                     break; // Valid input
                 } else {
-                    System.out.println("Invalid input. Please enter a positive integer.");
+                    System.out.println("Invalid input. Please enter a positive integer for AD years.");
                 }
             } else {
                 System.out.println("Invalid input. Please enter a valid integer.");
@@ -53,6 +37,8 @@ public class Calendar {
         return year;
     }
 
+
+    // Reuse the same methods from part one
     public static void printMonthCalendar(int month, int year) {
         printMonthHeader(month, year);
         printMonthBody(month, year);
